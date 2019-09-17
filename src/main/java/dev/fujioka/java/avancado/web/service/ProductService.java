@@ -46,4 +46,8 @@ public class ProductService
     public long count() {
         return productRepository.count();
     }
+    
+    public List<Product> listaProducts(String name){
+    	return productRepository.findProductByName(name);
+    }
 }
