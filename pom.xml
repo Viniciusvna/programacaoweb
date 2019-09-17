@@ -12,7 +12,7 @@
 
     <groupId>dev.fujioka.java.avancado</groupId>
     <artifactId>web</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3.SNAPSHOT</version>
 
     <name>web</name>
     <description>Projeto da disciplina de programação avançada para web</description>
@@ -71,6 +71,19 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
