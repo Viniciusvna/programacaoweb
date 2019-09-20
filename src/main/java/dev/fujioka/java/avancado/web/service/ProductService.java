@@ -1,13 +1,14 @@
 package dev.fujioka.java.avancado.web.service;
 
-import dev.fujioka.java.avancado.web.domain.Product;
-import dev.fujioka.java.avancado.web.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import dev.fujioka.java.avancado.web.domain.Product;
+import dev.fujioka.java.avancado.web.repository.ProductRepository;
 
 @Service
 public class ProductService
@@ -47,7 +48,23 @@ public class ProductService
         return productRepository.count();
     }
     
-    public List<Product> listaProducts(String name){
+    public List<Product> findProductByName(String name){
     	return productRepository.findProductByName(name);
+    }
+    
+    public List<Product> findProductById(Long id){
+    	return productRepository.findProductById(id);
+    }
+    
+    public List<Product> findProductByDtCreation(Date dtCreation){
+    	return productRepository.findProductByDtCreation(dtCreation);
+    }
+    
+    public List<Product> findProductByDtUpdate(Date dtUpdate){
+    	return productRepository.findProductByDtUpdate(dtUpdate);
+    }
+    
+    public List<Product> findProductByDescription(String description){
+    	return productRepository.findProductByDescription(description);
     }
 }

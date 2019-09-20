@@ -1,12 +1,14 @@
 package dev.fujioka.java.avancado.web.service;
 
-import dev.fujioka.java.avancado.web.domain.User;
-import dev.fujioka.java.avancado.web.repository.UserRepository;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import dev.fujioka.java.avancado.web.domain.User;
+import dev.fujioka.java.avancado.web.repository.UserRepository;
 
 @Service
 public class UserService implements CrudInterface<User> {
@@ -42,5 +44,29 @@ public class UserService implements CrudInterface<User> {
     @Override
     public long count() {
         return userRepository.count();
+    }
+    
+    public List<User> findProductByLogin(String login){
+    	return userRepository.findProductByLogin(login);
+    }
+    
+    public List<User> findProductById(Long id){
+    	return userRepository.findProductById(id);
+    }
+    
+    public List<User> findProductByDtCreation(Date dtCreation){
+    	return userRepository.findProductByDtCreation(dtCreation);
+    }
+    
+    public List<User> findProductByDtUpdate(Date dtUpdate){
+    	return userRepository.findProductByDtUpdate(dtUpdate);
+    }
+    
+    public List<User> findProductByFirstName(String firtName){
+    	return userRepository.findProductByFirstName(firtName);
+    }
+    
+    public List<User> findProductByLastName(String lastName){
+    	return userRepository.findProductByLastName(lastName);
     }
 }

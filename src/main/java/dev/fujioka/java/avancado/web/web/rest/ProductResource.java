@@ -1,8 +1,11 @@
 package dev.fujioka.java.avancado.web.web.rest;
 
+import java.util.Date;
 import java.util.List;
 
+import org.hibernate.annotations.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +30,30 @@ public class ProductResource {
     public List<Product> getProductList() {
         return productService.findAll();
     }
+    
+    @GetMapping("/product/id/{id}")
+    public List<Product> getProductById(@PathVariable Long id) {
+        return productService.findProductById(id);
+    }
 
-    @GetMapping("/product/{name}")
-    public List<Product> getProductList(@PathVariable String name) {
-        return productService.listaProducts(name);
+    @GetMapping("/product/name/{name}")
+    public List<Product> getProductByName(@PathVariable String name) {
+        return productService.findProductByName(name);
+    }
+    
+    @GetMapping("/product/description/{description}")
+    public List<Product> getProductByDescription(@PathVariable String description) {
+        return productService.findProductByDescription(description);
+    }
+    
+    @GetMapping("/product/dtCreation/{dtCreation}")
+    public List<Product> getProductByDtCreation(@PathVariable @DateTimeFormat(pattern = "ddMMyyyy") Date dtCreation) {
+        return productService.findProductByDtCreation(dtCreation);
+    }
+    
+    @GetMapping("/product/dtUpdate/{dtUpdate}")
+    public List<Product> getProductByDtUpdate(@PathVariable Date dtUpdate) {
+        return productService.findProductByDtUpdate(dtUpdate);
     }
 
     @PostMapping("/product")
